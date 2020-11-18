@@ -25,24 +25,8 @@ public class RestUtils {
 
     private RestTemplate restTemplate;
 
-    public RestUtils() throws KeyStoreException, NoSuchAlgorithmException, KeyManagementException {
-        TrustStrategy acceptingTrustStrategy = (X509Certificate[] chain, String authType) -> true;
-
-
-        SSLContext sslContext = org.apache.http.ssl.SSLContexts.custom()
-            .loadTrustMaterial(null, acceptingTrustStrategy)
-            .build();
-
-        SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext);
-
-        CloseableHttpClient httpClient = HttpClients.custom()
-                                            .setSSLSocketFactory(csf)
-                                            .build();
-
-        HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
-        requestFactory.setHttpClient(httpClient);
-
-        this.restTemplate = new RestTemplate(requestFactory);
+    public RestUtils() {
+        this.restTemplate = new RestTemplate();
     }
 
     public ResponseEntity get(String url, Map<String, String> paramQuery) {
