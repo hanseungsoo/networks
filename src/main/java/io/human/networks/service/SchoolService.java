@@ -1,9 +1,10 @@
 package io.human.networks.service;
 
 import io.human.networks.service.vo.SchoolVo;
-import org.springframework.http.ResponseEntity;
+
+import java.util.Map;
 
 public interface SchoolService {
 
-    public ResponseEntity getSchool(String name, String pIndex, String pSize);
+    public SchoolVo getSchool(Map<String, String> paramQuery);
 }

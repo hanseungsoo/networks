@@ -3,6 +3,10 @@ package io.human.networks.service.impl;
 import io.human.networks.service.SchoolService;
 import io.human.networks.service.vo.SchoolVo;
 import io.human.networks.util.RestUtils;
+import io.human.networks.util.mapper.RestMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
+@Slf4j
 public class SchoolServiceImpl implements SchoolService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -30,17 +35,16 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
-    public ResponseEntity getSchool(String name, String pIndex, String pSize) {
-        Map<String, String> paramQuery = new HashMap<>();
-        paramQuery.put("name", name);
-        paramQuery.put("pIndex", pIndex);
-        paramQuery.put("pSize", pSize);
+    public SchoolVo getSchool(Map<String, String> paramQuery) {
         paramQuery.put("key", schoolApiKey);
 
-        logger.info(paramQuery.toString());
-        ResponseEntity responseEntity = restUtils.get(schoolApiUrl, paramQuery);
-        logger.info(responseEntity.toString());
+        SchoolVo schoolVo = restUtils.get(schoolApiUrl, paramQuery, new RestMapper() {
+            @Override
+            public <T> T mapper(ResponseEntity responseEntity) {
+                return (T) new SchoolVo().toSchoolVo((String)responseEntity.getBody());
+            }
+        });
 
-        return responseEntity;
+        return schoolVo;
     }
 }
