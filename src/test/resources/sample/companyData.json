@@ -1,0 +1,55 @@
+{
+  "response":{
+    "body":{
+      "items":{
+        "item":[
+          {
+            "basDt":"20141203",
+            "crno":"1101112599136",
+            "corpNm":"삼익산업개발",
+            "corpEnsnNm":"Samick Development Co.,LTd.",
+            "enpPbanCmpyNm":"",
+            "enpRprFnm":"이철용",
+            "corpRegMrktDcd":"",
+            "corpRegMrktDcdNm":"",
+            "corpDcd":"04",
+            "corpDcdNm":"주식회사",
+            "bzno":"",
+            "enpOzpno":"",
+            "enpBsadr":"",
+            "enpDtadr":"",
+            "enpHmpgUrl":"www.siapt.com",
+            "enpTlno":"",
+            "enpFxno":"0220653235",
+            "sicNm":"",
+            "enpEstbDt":"08",
+            "enpStacMm":"",
+            "enpXchgLstgDt":"",
+            "enpXchgLstgAbolDt":"",
+            "enpKosdaqLstgDt":"",
+            "enpKosdaqLstgAbolDt":"",
+            "enpKrxLstgDt":"",
+            "enpKrxLstgAbolDt":"",
+            "smenpYn":"",
+            "enpMntrBnkNm":"수협 신정동지점",
+            "enpEmpeCnt":"22",
+            "empeAvgCnwkTermCtt":"",
+            "enpPn1AvgSlryAmt":"0",
+            "actnAudpnNm":"",
+            "audtRptOpnnCtt":"",
+            "enpMainBizNm":"",
+            "fssCorpUnqNo":"",
+            "fssCorpChgDtm":""
+          }
+        ]
+      },
+      "numOfRows":1,
+      "pageNo":1,
+      "totalCount":15945194
+    },
+    "header":{
+      "resultCode":"00",
+      "resultMsg":"NORMAL SERVICE."
+    }
+  }
+}

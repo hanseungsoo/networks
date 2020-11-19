@@ -22,8 +22,8 @@ public class SchoolController {
     }
 
     @GetMapping
-    public ResponseEntity getSchool(@RequestParam Map<String, String> paramQuery) {
-        SchoolVo schoolVo = schoolService.getSchool(paramQuery);
+    public ResponseEntity getSchoolList(@RequestParam Map<String, String> paramQuery) {
+        SchoolVo schoolVo = schoolService.getSchoolList(paramQuery);
         return new ResponseEntity(schoolVo, HttpStatus.OK);
     }
 }

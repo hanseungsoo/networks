@@ -34,7 +34,7 @@ public class SchoolServiceMockTest {
         paramQuery.put("pIndex", "1");
         paramQuery.put("pSize", "50");
 
-        SchoolVo schoolVo = schoolService.getSchool(paramQuery);
+        SchoolVo schoolVo = schoolService.getSchoolList(paramQuery);
         log.info(schoolVo.toString());
 
         assertEquals("9", schoolVo.getListTotalCount());

@@ -5,22 +5,15 @@ import io.human.networks.service.vo.SchoolVo;
 import io.human.networks.util.RestUtils;
 import io.human.networks.util.mapper.RestMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.Map;
 
-@Service
 @Slf4j
+@Service
 public class SchoolServiceImpl implements SchoolService {
-
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Value("${api.school.url}")
     private String schoolApiUrl;
@@ -35,7 +28,7 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
-    public SchoolVo getSchool(Map<String, String> paramQuery) {
+    public SchoolVo getSchoolList(Map<String, String> paramQuery) {
         paramQuery.put("key", schoolApiKey);
 
         SchoolVo schoolVo = restUtils.get(schoolApiUrl, paramQuery, new RestMapper() {

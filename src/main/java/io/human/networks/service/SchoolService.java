@@ -6,5 +6,5 @@ import java.util.Map;
 
 public interface SchoolService {
 
-    public SchoolVo getSchool(Map<String, String> paramQuery);
+    public SchoolVo getSchoolList(Map<String, String> paramQuery);
 }
