@@ -1,7 +1,7 @@
 package io.human.networks.service.impl;
 
 import io.human.networks.service.SchoolService;
-import io.human.networks.service.vo.SchoolVo;
+import io.human.networks.vo.SchoolVo;
 import io.human.networks.util.RestUtils;
 import io.human.networks.util.mapper.RestMapper;
 import lombok.extern.slf4j.Slf4j;

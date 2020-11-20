@@ -1,6 +1,6 @@
 package io.human.networks.service;
 
-import io.human.networks.service.vo.CompanyVo;
+import io.human.networks.vo.CompanyVo;
 
 import java.util.Map;
 

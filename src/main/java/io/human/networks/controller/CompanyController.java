@@ -1,7 +1,7 @@
 package io.human.networks.controller;
 
 import io.human.networks.service.CompanyService;
-import io.human.networks.service.vo.CompanyVo;
+import io.human.networks.vo.CompanyVo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

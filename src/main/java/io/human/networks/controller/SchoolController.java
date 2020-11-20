@@ -1,7 +1,7 @@
 package io.human.networks.controller;
 
 import io.human.networks.service.SchoolService;
-import io.human.networks.service.vo.SchoolVo;
+import io.human.networks.vo.SchoolVo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

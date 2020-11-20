@@ -1,7 +1,6 @@
 package io.human.networks.util;
 
 import io.human.networks.util.mapper.RestMapper;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 

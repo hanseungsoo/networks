@@ -1,4 +1,4 @@
-package io.human.networks.service.vo;
+package io.human.networks.vo;
 
 import lombok.Data;
 

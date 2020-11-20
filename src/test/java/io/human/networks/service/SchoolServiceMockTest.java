@@ -1,19 +1,15 @@
 package io.human.networks.service;
 
 import io.human.networks.service.impl.SchoolServiceImpl;
-import io.human.networks.service.vo.SchoolVo;
+import io.human.networks.vo.SchoolVo;
 import io.human.networks.util.RestUtils;
 import io.human.networks.util.mapper.RestMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
