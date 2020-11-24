@@ -1,15 +1,26 @@
-create table users(
-	username varchar_ignorecase(50) not null primary key,
-	password varchar_ignorecase(50) not null,
-	email varchar_ignorecase(50) not null,
-	address varchar_ignorecase(50) not null,
-	birthDay varchar_ignorecase(50) not null,
-	enabled boolean not null
+create table user(
+    user_id varchar(50) primary key,
+    password varchar(50) not null,
+    user_name varchar(50),
+    user_email varchar(50),
+    user_addr varchar(50) ,
+    user_birth varchar(50),
+    enabled boolean not null
 );
 
-create table authorities (
-	username varchar_ignorecase(50) not null,
-	authority varchar_ignorecase(50) not null,
-	constraint fk_authorities_users foreign key(username) references users(username)
+create table role (
+    role_id int auto_increment primary key,
+    role_name varchar(50) not null
 );
-create unique index ix_auth_username on authorities (username,authority);
+
+create table user_role(
+	user_id varchar(50) not null,
+    role_id int not null,
+    constraint fk_user_id foreign key(user_id) references user(user_id),
+    constraint fk_role_id foreign key(role_id) references role(role_id)
+);
+
+insert into role (role_name) values('ADMIN');
+insert into role (role_name) values('USER');
+
+commit;

@@ -1,9 +1,13 @@
 package io.human.networks.controller;
 
 import io.human.networks.controller.request.UserInfoRequest;
+import io.human.networks.entity.User;
 import io.human.networks.service.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,15 +17,19 @@ public class UserController {
 
     private UserService userService;
 
-    public UserController(UserService userService) {
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public UserController(UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userService = userService;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @PostMapping
-    public ResponseEntity setUser(UserInfoRequest userInfoRequest) {
+    public ResponseEntity setUser(@RequestBody UserInfoRequest userInfoRequest) {
 
-        userService.setUser(userInfoRequest);
+        userInfoRequest.setPassWord(bCryptPasswordEncoder.encode(userInfoRequest.getPassWord()));
+        User user = userService.setUser(userInfoRequest);
 
-        return null;
+        return new ResponseEntity(user, HttpStatus.OK);
     }
 }
