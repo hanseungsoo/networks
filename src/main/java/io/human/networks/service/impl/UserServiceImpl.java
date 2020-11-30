@@ -9,8 +9,8 @@ import io.human.networks.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 
@@ -34,6 +34,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public User setUser(UserInfoRequest userInfoRequest) {
         User user = new User();
         user.setUserId(userInfoRequest.getUserId());
@@ -45,6 +46,8 @@ public class UserServiceImpl implements UserService {
 
         log.info(user.toString());
 
-        return userRepository.save(user);
+        userRepository.insert(user);
+
+        return user;
     }
 }
