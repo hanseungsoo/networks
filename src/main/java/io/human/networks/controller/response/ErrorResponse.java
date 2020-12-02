@@ -9,7 +9,6 @@ import java.util.List;
 @Data
 public class ErrorResponse {
 
-    private int code;
     private String exception;
     private String message;
     private String path;

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 
 @Slf4j
@@ -30,7 +31,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-        return null;
+        User user = userRepository.findByUserId(userId);
+
+        if (user == null) {
+            throw new UsernameNotFoundException(userId);
+        }
+
+        return new org.springframework.security.core.userdetails.User(user.getUserId(), user.getPassword(), Collections.emptyList());
     }
 
     @Override
